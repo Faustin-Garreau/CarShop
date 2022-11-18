@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('car', function (Blueprint $table) {
             $table->id();
-            $table->boolval('gearbox');
+            $table->string('gearbox');
             $table->string('immat');
             $table->string('color');
             $table->integer('door_number');
@@ -25,8 +25,7 @@ return new class extends Migration
             $table->string('oil');
             $table->string('categories');
             $table->text('image');
-            $table->text('licence');
-            $table->decimal('licence');
+            $table->decimal('rate');
             $table->timestamps();
         });
     }
