@@ -21,11 +21,14 @@
             n'est pas équipée d'une clim
         @endif
         </p>
-        <form method="POST" action="{{ url('/cars'.'/' . $car->id) }}">
+        <div class="d-flex">
+        <button type="button" class="btn btn-info"><a style="text-decoration: none; color:white;" href="{{ url('cars/' . $car->id . '/edit') }}">Editer</a></button>
+        <form class="ml-3"  method="POST" action="{{ url('/cars'.'/' . $car->id) }}">
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
-                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                    <button  type="submit" class="btn btn-danger ">Supprimer</button>
         </form>
+        </div>
     </div>
 </div>
 </div>

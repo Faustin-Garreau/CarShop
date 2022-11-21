@@ -71,7 +71,11 @@ class CarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        var_dump('je rentre');
+        $car = Car::find($id);
+        $modif = $request->all();
+        $car->update($modif);
+        return redirect('cars');
     }
 
     /**
