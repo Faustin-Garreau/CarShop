@@ -21,6 +21,11 @@
             n'est pas équipée d'une clim
         @endif
         </p>
+        <form method="POST" action="{{ url('/cars'.'/' . $car->id) }}">
+                    {{ method_field('DELETE') }}
+                    {{ csrf_field() }}
+                    <button type="submit" class="btn btn-danger">Supprimer</button>
+        </form>
     </div>
 </div>
 </div>
