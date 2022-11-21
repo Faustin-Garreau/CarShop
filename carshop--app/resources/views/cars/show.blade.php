@@ -8,12 +8,12 @@
     <title>Document</title>
 </head>
 <body>
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center" style="padding: 100px">
 <div class="card" style="width: 33%"> 
     <img class="card-img-top" src={{$car->image}}>
     <div class="card-body">
         <h5 class="card-title">Immat : {{$car->immat}}</h5>
-        <p class="card-text">Type : {{$car->gaerbox}}</p>
+        <p class="card-text">Type : {{$car->gearbox}}</p>
         <p>le voiture à actuellement : {{$car->kilometers}} kilomètres, {{$car->nb_places}} places et 
         @if($car->clim == 1)
             est bien équipée d'une clim
@@ -22,7 +22,7 @@
         @endif
         </p>
         <div class="d-flex">
-        <button type="button" class="btn btn-info"><a style="text-decoration: none; color:white;" href="{{ url('cars/' . $car->id . '/edit') }}">Editer</a></button>
+        <a style="text-decoration: none; color:white;" href="{{ url('cars/' . $car->id . '/edit') }}"><button type="button" class="btn btn-info">Editer</button></a>
         <form class="ml-3"  method="POST" action="{{ url('/cars'.'/' . $car->id) }}">
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
