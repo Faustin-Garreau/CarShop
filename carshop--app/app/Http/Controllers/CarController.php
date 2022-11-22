@@ -24,7 +24,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        //
+        return view('cars.create');
     }
 
     /**
@@ -35,7 +35,9 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $create = $request->all();
+        Car::create($create);
+        return redirect('cars');
     }
 
     /**
@@ -71,7 +73,6 @@ class CarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        var_dump('je rentre');
         $car = Car::find($id);
         $modif = $request->all();
         $car->update($modif);

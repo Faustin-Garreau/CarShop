@@ -14,13 +14,15 @@
     <div class="card-body">
         <h5 class="card-title">Immat : {{$car->immat}}</h5>
         <p class="card-text">Type : {{$car->gearbox}}</p>
-        <p>le voiture à actuellement : {{$car->kilometers}} kilomètres, {{$car->nb_places}} places et 
+        <p class="card-text">Categories : {{$car->categories}}</p>
+        <p>le voiture à actuellement : {{$car->kilometers}} kilomètres, {{$car->door_number}} portes, {{$car->oil}} comme carburant, {{$car->nb_places}} places et 
         @if($car->clim == 1)
             est bien équipée d'une clim
         @else
             n'est pas équipée d'une clim
         @endif
         </p>
+        <p class="card-text">(le véhicule coute {{$car->rate}}€/jour)</p>
         <div class="d-flex">
         <a style="text-decoration: none; color:white;" href="{{ url('cars/' . $car->id . '/edit') }}"><button type="button" class="btn btn-info">Editer</button></a>
         <form class="ml-3"  method="POST" action="{{ url('/cars'.'/' . $car->id) }}">

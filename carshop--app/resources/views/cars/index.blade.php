@@ -9,12 +9,15 @@
 </head>
 <body class="bg-secondary">
 
+<div class="d-flex justify-content-center align-items-center">
 <h1 class="text-center p-5 text-white">Toutes les voitures</h1>
+<a href="cars/create"><button type="button" class="btn btn-warning text-white">Créer une voiture ? cliquez-ici</button></a>
+</div>
 
-<div>
-<div class="d-flex justify-content-center flex-wrap">
+<div class="d-flex justify-content-around flex-wrap">
 @foreach($cars as $car)
-<div class="card" style="width: 30%;"> 
+<div style="width: 30%;" class="p-3">
+<div class="card" style="width: 100%;"> 
     <img class="card-img-top" src={{$car->image}}>
     <div class="card-body">
         <h5 class="card-title">Immat : {{$car->immat}}</h5>
@@ -22,8 +25,8 @@
         <a href="/cars/{{$car->id}}" class="btn btn-primary">En voir plus</a>
     </div>
 </div>
-@endforeach
 </div>
+@endforeach
 </div>
 </body>
 </html>
