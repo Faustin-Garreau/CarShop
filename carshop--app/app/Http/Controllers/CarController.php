@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Car;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
@@ -13,7 +13,8 @@ class CarController extends Controller
      */
     public function index()
     {
-        //
+        $cars = Car::all();
+        return view ('cars.index')->with('cars', $cars);
     }
 
     /**
@@ -23,7 +24,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        //
+        return view('cars.create');
     }
 
     /**
@@ -34,7 +35,9 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $create = $request->all();
+        Car::create($create);
+        return redirect('cars');
     }
 
     /**
@@ -45,7 +48,8 @@ class CarController extends Controller
      */
     public function show($id)
     {
-        //
+        $car = Car::find($id);
+        return view('cars.show', ['car' => $car]);
     }
 
     /**
@@ -56,7 +60,8 @@ class CarController extends Controller
      */
     public function edit($id)
     {
-        //
+        $car = Car::find($id);
+        return view('cars.edit')->with('car', $car);
     }
 
     /**
@@ -68,7 +73,10 @@ class CarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $car = Car::find($id);
+        $modif = $request->all();
+        $car->update($modif);
+        return redirect('cars');
     }
 
     /**
@@ -79,6 +87,7 @@ class CarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Car::destroy($id);
+        return redirect('cars');
     }
 }
